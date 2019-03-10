@@ -6,9 +6,6 @@ export default (props) => (
         <img alt="avatar" src={props.applicant.avatar}/>
         <h3>{props.applicant.name}</h3>
         <h4>{props.applicant.city}</h4>
-        <Icon type="close" onClick={() => {
-            props.handleDelete(props.applicant.name);
-        }}>Remove</Icon>
         {(props.applicant.status === 'hired' || props.applicant.status === 'interviewing') && <Icon type="arrow-left" onClick={
             () => {
                 props.handleMoveLeft(props.applicant)
@@ -19,5 +16,9 @@ export default (props) => (
                 props.handleMoveRight(props.applicant)
             }
         }>Move Right</Icon>}
+        <br/>
+            <Icon type="close" onClick={() => {
+                props.handleDelete(props.applicant.name);
+            }}>Remove</Icon>
     </div>
 )
